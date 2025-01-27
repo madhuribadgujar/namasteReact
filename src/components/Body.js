@@ -40,7 +40,7 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="filter">
-        <div className="search">
+        <div className="relative max-w-md mx-auto mt-5">
           <input
             type="text"
             value={searchText}
@@ -52,10 +52,15 @@ const Body = () => {
               )
               setFilterdlistOfRest(filteredRes)
             }}
-            className="searchBox"
+            className="w-full p-3 pl-10 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Search"
           />
-          <button onClick={() => {}}>Search</button>
+          <button
+            onClick={() => {}}
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+          >
+            x
+          </button>
         </div>
         <button
           className="filter-btn"
@@ -68,13 +73,16 @@ const Body = () => {
           Top Rated Restaurents
         </button>
       </div>
-      <div className="rest-container">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
         {
           //
           filterdlistOfRest.map(rest => {
             //  console.log(rest);
             return (
-              <Link to={'restaurent/' + rest.info.id}>
+              <Link
+                to={'restaurent/' + rest.info.id}
+                className="max-w-xs h-80 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:h-[20rem] hover:scale-105 hover:shadow-2xl"
+              >
                 <RestCard key={rest.info.id} restData={rest} />
               </Link>
             )
