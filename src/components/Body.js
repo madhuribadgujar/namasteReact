@@ -1,4 +1,4 @@
-import RestCard from './RestCard'
+import RestCard, { withPramotedLabel } from './RestCard'
 import jsonData from '../utils/mockData'
 import { useEffect, useState } from 'react'
 import Shimmer from './Shimemer'
@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 const Body = () => {
   const [listOfRest, setListOfRest] = useState(jsonData)
   const [filterdlistOfRest, setFilterdlistOfRest] = useState(jsonData)
+  const RestCartPramoted = withPramotedLabel(RestCard)
 
   const [searchText, setSearchText] = useState('')
   useEffect(() => {
@@ -77,13 +78,20 @@ const Body = () => {
         {
           //
           filterdlistOfRest.map(rest => {
-            //  console.log(rest);
+            console.log('rrr', rest.info.pramoted)
             return (
               <Link
                 to={'restaurent/' + rest.info.id}
                 className="max-w-xs h-80 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:h-[20rem] hover:scale-105 hover:shadow-2xl"
               >
-                <RestCard key={rest.info.id} restData={rest} />
+                {
+                  /** If rest is pramoted then add pramoted a pramoted label to it */
+                  rest.info.pramoted ? (
+                    <RestCartPramoted restData={rest} />
+                  ) : (
+                    <RestCard key={rest.info.id} restData={rest} />
+                  )
+                }
               </Link>
             )
           })

@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import Error from './src/components/Error'
 import { createBrowserRouter } from 'react-router-dom'
 import About from './src/components/About'
 import Contact from './src/components/Contact'
 import RestaurentMenue from './src/components/RestaurentMenu'
-import Grocery from './src/utils/Grocery'
+// import Grocery from './src/utils/Grocery'
+import { RouterProvider } from 'react-router'
 /**
  * Header
  *  -Logo
@@ -1013,6 +1014,8 @@ const Body = () => {
 //     }
 //   }
 // ]
+const Grocery = lazy(() => import('./src/components/Grocery'))
+const About = lazy(() => import('./src/components/About'))
 const AppLayout = () => {
   return (
     <div className="app">
@@ -1032,7 +1035,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: '/about',
-        element: <About />
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <About />
+          </Suspense>
+        )
       },
       {
         path: '/contact',
@@ -1040,7 +1047,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: '/grocery',
-        element: <Grocery />
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Grocery />
+          </Suspense>
+        )
       },
       {
         path: '/restaurents/:restId',
@@ -1051,4 +1062,4 @@ const appRouter = createBrowserRouter([
   }
 ])
 const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(<AppLayout />)
+root.render(<RouterProvider router={appRouter}></RouterProvider>)

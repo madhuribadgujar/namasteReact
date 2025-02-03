@@ -4,42 +4,36 @@ import jsonData from '../utils/mockData'
 import cartData from '../utils/cartItems'
 import Shimmer from './Shimemer'
 import useRestaurentMenue from '../utils/useRestaurentMenue'
+import RestCategory from './RestCaregory'
 const RestaurentMenue = () => {
   const restInfo = useRestaurentMenue()
-  // const [restInfo, setRestInfo] = useState(jsonData)
-
-  const { name, cuisines, costForTwo, avgRating } = restInfo[0]?.info
-  const items =
-    cartData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-      ?.restaurants
-  console.log(items, 'itemCards')
+  const dummy = 'Dummy data'
+  const items = cartData?.data?.cards[2]?.card?.card?.info
+  const { name, cuisines, costForTwo, avgRating } = items
+  const itemsData =
+    cartData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
   const cards = restInfo
   return restInfo === null ? (
     <Shimmer />
   ) : (
-    <div className="menu p-6 bg-gray-50 rounded-lg shadow-md max-w-lg mx-auto hover:shadow-xl transition-all duration-300">
-      <h1 className="text-4xl font-extrabold text-gray-900 mb-4">{name}</h1>
-      <h3 className="text-md font-semibold text-gray-600 mb-3">
-        {cuisines.join(', ')}
-      </h3>
-      <h3 className="text-md font-semibold text-gray-600 mb-3">
-        Cost for two: {costForTwo}
-      </h3>
-      <h4 className="text-sm font-medium text-gray-500 mb-5">
-        Avg Rating: {avgRating}
-      </h4>
-
-      <ul className="space-y-3">
-        {items.map(itm => (
-          <li
-            key={itm?.info?.id}
-            className="text-sm text-gray-700 flex justify-between items-center border-b border-gray-200 pb-2"
-          >
-            <span>{itm?.info?.name}</span>
-            <span className="text-gray-500">Rs. {itm?.info?.costForTwo}</span>
-          </li>
-        ))}
-      </ul>
+    <div className="">
+      <div className="menu p-4 bg-gray-50 rounded-lg shadow-md  mx-auto  transition-all duration-300">
+        <h1 className="flex justify-center text-4xl font-extrabold text-gray-900 mb-4">
+          {name}
+        </h1>
+        <h3 className="flex justify-center text-md font-semibold text-gray-600 mb-3">
+          {cuisines.join(', ')}
+        </h3>
+        <h3 className="flex justify-center text-md font-semibold text-gray-600 mb-3">
+          Cost for two: {costForTwo}
+        </h3>
+        <h4 className="flex justify-center text-sm font-medium text-gray-500 mb-5">
+          Avg Rating: {avgRating}
+        </h4>
+        {itemsData?.map((itm, xKey) => {
+          return <RestCategory data={itm?.card?.card} />
+        })}
+      </div>
     </div>
   )
 }

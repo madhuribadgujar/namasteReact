@@ -97,6 +97,7 @@ const jsonData = [
       cuisines: ['Momos', 'Chinese', 'Fast Food'],
       avgRating: 4.2,
       veg: true,
+      pramoted: true,
       parentId: '140255',
       avgRatingString: '4.2',
       totalRatingsString: '1.0K+',
@@ -183,6 +184,7 @@ const jsonData = [
         'Desserts'
       ],
       avgRating: 4.2,
+      pramoted: true,
       veg: true,
       parentId: '101802',
       avgRatingString: '4.2',
@@ -264,6 +266,7 @@ const jsonData = [
       avgRating: 4.3,
       veg: true,
       parentId: '40363',
+      pramoted: true,
       avgRatingString: '4.3',
       totalRatingsString: '236',
       sla: {
@@ -348,6 +351,7 @@ const jsonData = [
       avgRating: 4.1,
       parentId: '395453',
       avgRatingString: '4.1',
+      pramoted: true,
       totalRatingsString: '261',
       sla: {
         deliveryTime: 56,
@@ -410,6 +414,7 @@ const jsonData = [
       cuisines: ['North Indian', 'Biryani', 'Tandoor'],
       avgRating: 4.3,
       parentId: '27123',
+      pramoted: false,
       avgRatingString: '4.3',
       totalRatingsString: '1.0K+',
       sla: {
@@ -474,6 +479,7 @@ const jsonData = [
       cuisines: ['Ice Cream Cakes', 'Desserts', 'Ice Cream', 'Bakery'],
       avgRating: 5,
       veg: true,
+      pramoted: false,
       parentId: '21932',
       avgRatingString: '5.0',
       totalRatingsString: '3',
@@ -550,6 +556,7 @@ const jsonData = [
       cloudinaryImageId: 'rvxp5xbniat84r6efku2',
       locality: 'Sinchai Colony',
       areaName: 'Satkar Chowk',
+      pramoted: true,
       costForTwo: '₹250 for two',
       cuisines: [
         'North Indian',
@@ -560,6 +567,7 @@ const jsonData = [
       ],
       avgRating: 4.3,
       veg: true,
+      pramoted: false,
       parentId: '21553',
       avgRatingString: '4.3',
       totalRatingsString: '2.1K+',
@@ -641,6 +649,7 @@ const jsonData = [
       avgRating: 4.9,
       veg: true,
       parentId: '5588',
+      pramoted: false,
       avgRatingString: '4.9',
       totalRatingsString: '36',
       sla: {
@@ -721,6 +730,7 @@ const jsonData = [
       avgRating: 4.6,
       veg: true,
       parentId: '2233',
+      pramoted: true,
       avgRatingString: '4.6',
       totalRatingsString: '277',
       sla: {
@@ -798,6 +808,7 @@ const jsonData = [
       avgRating: 4.3,
       veg: true,
       parentId: '3045',
+      pramoted: false,
       avgRatingString: '4.3',
       totalRatingsString: '204',
       sla: {
@@ -858,6 +869,7 @@ const jsonData = [
       cuisines: ['Bakery', 'Ice Cream', 'Snacks', 'Beverages'],
       avgRating: 4,
       veg: true,
+      pramoted: false,
       parentId: '179482',
       avgRatingString: '4.0',
       totalRatingsString: '383',
