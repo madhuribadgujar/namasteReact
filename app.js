@@ -2,6 +2,7 @@ import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import Error from './src/components/Error'
 import { createBrowserRouter } from 'react-router-dom'
+import { CartProvider } from './CartContext'
 import About from './src/components/About'
 import Contact from './src/components/Contact'
 import RestaurentMenue from './src/components/RestaurentMenu'
@@ -39,6 +40,7 @@ const Header = () => {
           <li>Home</li>
           <li>About Us</li>
           <li>Contact Us</li>
+
           <li>Cart</li>
         </ul>
       </div>

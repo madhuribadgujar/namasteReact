@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import { Header } from './components/Header'
 import Body from './components/Body'
@@ -7,12 +7,30 @@ import Error from './components/Error'
 import About from './components/About'
 import Contact from './components/Contact'
 import RestaurentMenue from './components/RestaurentMenu'
+import UserContext from './utils/UserContex'
+import CartContext, { CartProvider } from './utils/CartContext'
 const AppLayout = () => {
+  //authentication code
+  const [userName, setUserName] = useState()
+  // const [cartCount, setCartCount] = useState(0)
+
+  useEffect(() => {
+    //api call and send UN n PW
+    const result = {
+      name: 'Madhuri'
+    }
+    setUserName(result.name)
+  }, [])
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+      <CartProvider>
+        <div className="app">
+          <Header />
+
+          <Outlet />
+        </div>
+      </CartProvider>
+    </UserContext.Provider>
   )
 }
 const appRouter = createBrowserRouter([
@@ -28,6 +46,5 @@ const appRouter = createBrowserRouter([
     errorElement: <Error />
   }
 ])
-console.log(appRouter, 'appRouter')
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(<RouterProvider router={appRouter} />)

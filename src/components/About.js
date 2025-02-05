@@ -29,4 +29,26 @@ const About = () => {
   )
 }
 
+/**
+ *
+ * import { Component } from 'react'
+// import UserClass from './UserClass'
+
+class About extends Component {
+  constructor(props) {
+    super(props)
+  }
+  componentDidMount() {
+    console.log('About component mounted')
+  }
+  render() {
+    return (
+      <div>
+        <h1>About</h1>
+        <h2>This is About</h2>
+      </div>
+    )
+  }
+}
+ */
 export default About

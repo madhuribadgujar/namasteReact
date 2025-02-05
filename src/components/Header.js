@@ -1,11 +1,16 @@
 import { LOGO_URL } from '../utils/constant'
-import { useState } from 'react'
+
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import useOnlineStatus from '../utils/useOnlineStatus'
+import UserContext from '../utils/UserContex'
+import { useCart } from '../utils/CartContext'
 export const Header = () => {
   let btnName = 'Login'
   const [btnNameReact, setBtnNameRect] = useState('Login')
   const onlineStatus = useOnlineStatus()
+  const { loggedInUser } = useContext(UserContext)
+  const { cartCount } = useCart()
   return (
     <div className="bg-gray-500 text-white p-4 flex justify-between items-center">
       <div className="flex items-center space-x-4">
@@ -25,7 +30,7 @@ export const Header = () => {
           <li>
             <Link to="contact">Contact Us</Link>
           </li>
-          <li>Cart</li>
+          <li>Cart ({cartCount} items)</li>
           <li>
             <Link to="/grocery">Grocery</Link>
           </li>
@@ -39,6 +44,7 @@ export const Header = () => {
           >
             {btnNameReact}
           </button>
+          <li className="px-4 font-bold"> {loggedInUser}</li>
         </ul>
       </div>
     </div>
