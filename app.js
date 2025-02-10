@@ -50,14 +50,12 @@ const Header = () => {
 
 const RestCard = props => {
   const { restData } = props
-  console.log(restData)
 
   const restaurantName = restData?.info.name
   const cuisines = restData?.info.cuisines
   const avgRating = restData?.info.avgRating
   const costForTwo = restData?.info.costForTwo
   const cloudinaryImageId = restData?.info.cloudinaryImageId
-  console.log(costForTwo)
 
   return (
     <div className="rest-card" style={{ backgroundColor: '#f0f0f0' }}>

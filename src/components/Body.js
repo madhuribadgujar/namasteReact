@@ -30,10 +30,9 @@ const Body = () => {
         //  options
       )
       const jsonData = await data.json() //wait for promise to resolve
-      console.log(jsonData, '>>>>>>>>>>>>')
       setFilterdlistOfRest(jsonData)
     } catch (error) {
-      console.error('Error fetching data:', error)
+      //  console.error('Error fetching data:', error)
     }
   }
 
@@ -49,7 +48,6 @@ const Body = () => {
             value={searchText}
             onChange={e => {
               setSearchText(e.target.value)
-              console.log(searchText)
               const filteredRes = listOfRest.filter(res =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               )
@@ -69,7 +67,6 @@ const Body = () => {
           className="filter-btn"
           onClick={() => {
             const filterList = listOfRest.filter(res => res.info.avgRating > 3)
-            console.log('filterListfilterList', filterList)
             setListOfRest(filterList)
           }}
         >
